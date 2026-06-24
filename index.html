@@ -5,7 +5,7 @@
 <title>Splash Omnimedia · Roofing Marketing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&family=Anton&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&family=Anton&family=Oswald:wght@500;600;700&family=Krona+One&display=swap" rel="stylesheet">
 <style>
 :root{
   --charcoal-navy:#032a3f; --powerful-navy:#083553; --deep-teal:#125a82;
@@ -42,9 +42,9 @@ a{text-decoration:none;color:inherit;}
   text-transform:uppercase;color:var(--vivid-sky);margin-bottom:16px;display:flex;align-items:flex-start;gap:14px;
   max-width:600px;}
 .eyebrow::before{content:"";flex:0 0 auto;width:34px;height:2px;margin-top:.55em;background:var(--vivid-sky);display:inline-block;}
-h1.head{font-family:var(--f-h);font-weight:800;letter-spacing:-.025em;line-height:1.0;
-  font-size:clamp(2.6rem,6vw,4.9rem);margin-bottom:24px;max-width:17ch;}
-h1.head em{font-style:normal;display:block;color:var(--vivid-sky);}
+h1.head{font-family:'Krona One','Helvetica Neue',Helvetica,sans-serif;font-weight:400;letter-spacing:-.005em;line-height:1.32;
+  font-size:clamp(1.25rem,2.4vw,2.15rem);margin-bottom:30px;max-width:24ch;}
+h1.head em{font-style:normal;color:var(--vivid-sky);}
 .lede{font-size:1.12rem;line-height:1.7;color:rgba(255,255,255,.84);max-width:540px;margin-bottom:38px;}
 .subline{font-family:var(--f-h);font-weight:500;font-size:clamp(1.1rem,1.9vw,1.4rem);line-height:1.55;
   color:rgba(255,255,255,.9);max-width:640px;margin-bottom:36px;}
@@ -65,7 +65,7 @@ h1.head em{font-style:normal;display:block;color:var(--vivid-sky);}
   padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);pointer-events:none;}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-#fx{position:absolute;inset:0;z-index:2;}
+#fx{position:absolute;inset:0;z-index:1;}
 .hero.c1 .wrap{z-index:5;}
 .hint{position:absolute;right:6vw;bottom:46px;z-index:6;font-family:var(--f-h);font-weight:600;
   font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);
@@ -75,129 +75,173 @@ h1.head em{font-style:normal;display:block;color:var(--vivid-sky);}
 @keyframes pp{0%{box-shadow:0 0 0 0 rgba(51,217,255,.5);}70%{box-shadow:0 0 0 16px rgba(51,217,255,0);}100%{box-shadow:0 0 0 0 rgba(51,217,255,0);}}
 .btn-magnet{will-change:transform;}
 
-/* ============ LOAD SCREEN ============ */
-#loader{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;background:var(--grad);overflow:hidden;}
-#loader::before{content:"";position:absolute;width:74vw;height:74vw;max-width:860px;max-height:860px;
-  border-radius:50%;background:radial-gradient(circle,rgba(51,217,255,.26),rgba(0,176,224,.06) 45%,transparent 65%);
-  opacity:0;animation:ld_glow 1.6s ease .1s forwards;}
-@keyframes ld_glow{to{opacity:1;}}
-#loader.out{animation:ld_out 1.15s cubic-bezier(.7,0,.25,1) forwards;}
-@keyframes ld_out{0%{opacity:1;transform:scale(1);filter:blur(0);}
-  100%{opacity:0;transform:scale(1.12);filter:blur(6px);visibility:hidden;}}
-.ld-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.ld-logo{position:relative;width:min(72vw,380px);overflow:visible;}
-/* the logo "splashes" in: a circular reveal spreads out from the splash mark */
-.ld-logo .logo{height:auto;width:100%;opacity:0;
-  -webkit-clip-path:circle(0% at 82% 46%);clip-path:circle(0% at 82% 46%);
-  animation:ld_logo 1.4s cubic-bezier(.16,1,.3,1) .35s forwards;}
-@keyframes ld_logo{
-  0%{opacity:0;-webkit-clip-path:circle(0% at 82% 46%);clip-path:circle(0% at 82% 46%);}
-  16%{opacity:1;}
-  100%{opacity:1;-webkit-clip-path:circle(155% at 82% 46%);clip-path:circle(155% at 82% 46%);}}
-/* splash ripple rings echo out from the mark (ties to the hero's cursor ripples) */
-.ld-ring{position:absolute;left:82%;top:46%;width:34px;height:34px;margin:-17px 0 0 -17px;
-  border:2px solid rgba(51,217,255,.55);border-radius:50%;transform:scale(0);opacity:0;pointer-events:none;}
-.ld-ring.r1{animation:ld_ring 1.5s cubic-bezier(.2,.8,.25,1) .35s forwards;}
-.ld-ring.r2{animation:ld_ring 1.75s cubic-bezier(.2,.8,.25,1) .55s forwards;border-color:rgba(255,255,255,.38);}
-@keyframes ld_ring{0%{transform:scale(0);opacity:0;}12%{opacity:.7;}100%{transform:scale(16);opacity:0;}}
-.ld-tag{overflow:hidden;margin-top:30px;}
-.ld-tag span{display:inline-block;font-family:var(--f-h);font-weight:600;
-  font-size:clamp(.85rem,2vw,1.25rem);letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.92);
-  transform:translateY(115%);animation:ld_tag 1s cubic-bezier(.16,1,.3,1) 1s forwards;}
-.ld-tag span i{font-style:normal;color:var(--vivid-sky);}
-@keyframes ld_tag{to{transform:none;}}
-.ld-rule{height:2px;width:0;margin:22px auto 0;background:linear-gradient(90deg,transparent,var(--vivid-sky),transparent);
-  animation:ld_rule 1s ease 1.35s forwards;}
-@keyframes ld_rule{to{width:240px;}}
-.ld-bar{position:absolute;bottom:8vh;left:50%;transform:translateX(-50%);width:min(260px,56vw);height:2px;
-  background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden;opacity:0;animation:ld_fade .6s ease .4s forwards;}
-.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--splash-blue),var(--vivid-sky));}
-@keyframes ld_fade{to{opacity:1;}}
-.ld-skip{position:absolute;right:26px;bottom:24px;z-index:3;font-family:var(--f-h);font-weight:600;
-  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);cursor:pointer;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.26);padding:9px 18px;border-radius:999px;
-  backdrop-filter:blur(4px);opacity:0;animation:ld_fade .6s ease .8s forwards;transition:background .2s,transform .2s;}
-.ld-skip:hover{background:rgba(255,255,255,.2);transform:translateY(-1px);}
-/* keep hero from showing scrollbars under loader */
+/* ============ CINEMATIC INTRO ============ */
+#loader{position:fixed;inset:0;z-index:100;overflow:hidden;background:var(--charcoal-navy);}
+#loader::before{content:"";position:absolute;inset:0;background:var(--grad);z-index:0;}
+#loader.out{animation:ld_out 1.25s cubic-bezier(.7,0,.2,1) forwards;}
+@keyframes ld_out{0%{opacity:1;transform:scale(1);filter:blur(0);}100%{opacity:0;transform:scale(1.14);filter:blur(10px);visibility:hidden;}}
+/* background clip layers: slow cinematic push + soft crossfade */
+.i-bg{position:absolute;inset:0;z-index:1;}
+.i-bg video,.i-bg .i-site,.i-bg .i-reel{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:scale(1.1);
+  transition:opacity 1.1s ease,transform 7s ease;}
+.i-bg video{object-fit:cover;}
+.i-bg .show{opacity:1;transform:scale(1);}
+.i-site{display:flex;align-items:center;justify-content:flex-start;padding:0;background:radial-gradient(120% 120% at 32% 42%,#0e3e5b,#062a3e 60%,#03202f);}
+.i-lap{position:relative;width:min(40vw,520px);margin-left:13vw;transform-style:preserve-3d;
+  transform:perspective(2700px) rotateX(4deg) rotateY(-25deg) scale(.9);transition:transform 1.4s cubic-bezier(.16,1,.3,1);}
+.i-bg .i-site.show .i-lap{transform:perspective(2700px) rotateX(4deg) rotateY(-25deg) scale(1);}
+.i-lid{transform-origin:50% 100%;transform:rotateX(-2deg);}
+.i-screen{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#fff;border:13px solid #14161b;border-bottom-width:14px;border-radius:18px 18px 8px 8px;box-shadow:0 38px 95px rgba(0,0,0,.62);}
+.i-base{position:relative;transform-origin:50% 0;transform:rotateX(76deg);width:107%;margin-left:-3.5%;height:min(31vw,400px);background:linear-gradient(180deg,#d2d7df,#a4aab5 75%,#8d93a0);border-radius:0 0 18px 18px;box-shadow:0 60px 80px rgba(0,0,0,.5);}
+.i-hinge{position:absolute;top:-3px;left:8%;right:8%;height:6px;background:#0c0d10;border-radius:0 0 5px 5px;}
+.i-kb{position:absolute;left:6.5%;right:6.5%;top:11%;height:42%;background:#15171c;border-radius:8px;background-image:repeating-linear-gradient(90deg,#272a30 0 8.2%,#15171c 8.2% 9.6%),repeating-linear-gradient(180deg,#272a30 0 20%,#15171c 20% 23%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.4);}
+.i-pad{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);width:32%;height:34%;background:#c2c8d1;border-radius:9px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);}
+.i-track{position:absolute;inset:0;}
+.i-track.scrolling{animation:i_scroll 5.5s ease-in-out forwards;}
+@keyframes i_scroll{from{transform:translateY(0);}to{transform:translateY(var(--isc,-220px));}}
+.i-frame{position:absolute;top:0;left:0;width:1440px;height:3200px;border:0;transform-origin:top left;}
+.i-tint{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,rgba(3,42,63,.82),rgba(3,42,63,.5) 55%,rgba(51,217,255,.14));transition:opacity .8s ease;}
+#loader.clear .i-tint{opacity:0;}
+/* expanding ripple waves fired on every transition (splash motif) */
+.i-ripple{position:absolute;left:50%;top:48%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;
+  border:2px solid rgba(51,217,255,.5);transform:scale(0);opacity:0;z-index:4;pointer-events:none;}
+.i-ripple.r2{border-color:rgba(255,255,255,.32);}
+.i-ripple.go{animation:i_rip 1.5s cubic-bezier(.2,.75,.25,1) forwards;}
+.i-ripple.r2.go{animation-duration:1.8s;animation-delay:.12s;}
+@keyframes i_rip{0%{transform:scale(0);opacity:.55;}70%{opacity:.12;}100%{transform:scale(32);opacity:0;}}
+/* stages */
+.i-stage{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  opacity:0;transition:opacity .9s cubic-bezier(.22,1,.36,1);pointer-events:none;padding:0 7vw;}
+.i-stage.on{opacity:1;}
+/* fluid blur-and-rise reveal for text stages */
+.i-stage:not(.i-logo) > *{transform:translateY(28px) scale(.985);filter:blur(9px);opacity:0;
+  transition:transform .95s cubic-bezier(.22,1,.36,1),filter .9s ease,opacity .9s ease;}
+.i-stage.on:not(.i-logo) > *{transform:none;filter:blur(0);opacity:1;}
+/* logo: circular splash-reveal from the mark */
+.i-logo .logo{width:min(74vw,420px);height:auto;filter:drop-shadow(0 14px 36px rgba(0,0,0,.4));
+  -webkit-clip-path:circle(0% at 80% 46%);clip-path:circle(0% at 80% 46%);}
+.i-logo.on .logo{animation:i_logo 1.4s cubic-bezier(.16,1,.3,1) forwards;}
+@keyframes i_logo{0%{-webkit-clip-path:circle(0% at 80% 46%);clip-path:circle(0% at 80% 46%);opacity:.35;}18%{opacity:1;}100%{-webkit-clip-path:circle(160% at 80% 46%);clip-path:circle(160% at 80% 46%);opacity:1;}}
+.i-logo .logo .ic path{fill:var(--logo-blue);}
+.i-logo .logo .wm path{fill:#fff;}
+/* tagline */
+.i-tag span{font-family:var(--f-h);font-weight:700;font-size:clamp(1.7rem,5.2vw,3.6rem);letter-spacing:.01em;color:#fff;line-height:1.1;display:block;}
+.i-tag i{font-style:normal;color:var(--vivid-sky);}
+.i-tag .rule{height:2px;width:0;margin:24px auto 0;background:linear-gradient(90deg,transparent,var(--vivid-sky),transparent);transition:width 1.1s cubic-bezier(.22,1,.36,1) .35s;}
+.i-tag.on .rule{width:240px;}
+/* service */
+.i-svc{align-items:flex-start;justify-content:center;text-align:left;padding:0 5vw;}
+.i-svc > div{width:100%;}
+.i-svc .i-count{font-family:var(--f-h);font-weight:700;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vivid-sky);margin-bottom:16px;}
+.i-svc .i-count b{font-size:1rem;}
+.i-svc .i-word{font-family:'Krona One','Helvetica Neue',sans-serif;font-weight:400;font-size:clamp(3.4rem,15vw,13rem);color:#fff;line-height:.84;letter-spacing:-.035em;text-shadow:0 8px 50px rgba(0,0,0,.5);}
+.i-svc .i-desc{font-family:var(--f-h);font-weight:500;font-size:clamp(1.05rem,1.9vw,1.35rem);color:rgba(255,255,255,.88);margin:18px auto 0;max-width:34ch;line-height:1.45;}
+.i-svc .i-word{transition:opacity .5s ease,transform .65s cubic-bezier(.18,1.2,.32,1),filter .5s ease;}
+.i-svc.swap .i-word{opacity:0;transform:translateX(56px) scale(.95);filter:blur(9px);}
+/* bold accent bar sweeps in under the service word */
+.i-svc .i-bar{display:block;height:9px;width:200px;margin:30px 0 0;border-radius:5px;
+  background:linear-gradient(90deg,var(--vivid-sky),#fff);box-shadow:0 0 24px rgba(51,217,255,.5);
+  transition:width .7s cubic-bezier(.2,1,.3,1) .08s,opacity .4s ease;}
+.i-svc.swap .i-bar{width:0;opacity:0;}
+/* WEBSITES beat: angled 3D laptop on the left, bold stacked type on the right */
+.i-svc.centered{flex-direction:column;align-items:flex-end;justify-content:center;text-align:right;padding:0 12vw 4vh 0;}
+.i-svc.centered .i-word{line-height:.8;letter-spacing:-.03em;width:100%;}
+.i-svc.centered .i-bar{display:none;}
+.i-svc.centered .l1{display:block;color:var(--splash-blue);font-size:clamp(2.6rem,12vw,10.5rem);text-shadow:0 8px 30px rgba(0,0,0,.5);}
+.i-svc.centered .l2{display:block;color:transparent;-webkit-text-stroke:clamp(1.6px,.24vw,3.2px) #fff;font-size:clamp(2.6rem,12vw,10.5rem);margin-top:.02em;}
+.i-out{color:transparent;-webkit-text-stroke:clamp(1.6px,.26vw,3px) #fff;text-stroke:clamp(1.6px,.26vw,3px) #fff;}
+/* DIGITAL MARKETING beat: vertical social-reel phone + stomp-in type */
+.i-reel{display:flex;align-items:center;justify-content:flex-start;background:radial-gradient(120% 120% at 40% 44%,#0e3e5b,#062a3e 60%,#03202f);}
+.i-phone{position:relative;height:min(72vh,560px);aspect-ratio:9/19.5;margin-left:15vw;border-radius:40px;background:#0b0d11;padding:10px;
+  box-shadow:0 44px 90px rgba(0,0,0,.6),0 0 0 2px rgba(255,255,255,.06),inset 0 0 0 2px rgba(255,255,255,.04);
+  transform:perspective(2200px) rotateY(-8deg) rotateX(2deg) scale(.9);transition:transform 1.3s cubic-bezier(.16,1,.3,1);}
+.i-bg .i-reel.show .i-phone{transform:perspective(2200px) rotateY(-8deg) rotateX(2deg) scale(1);}
+.i-phone2{display:none;}
+.i-pscreen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#000;}
+.i-pvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.i-notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:32%;height:9px;border-radius:6px;background:#000;z-index:4;}
+.i-rui{position:absolute;inset:0;z-index:3;pointer-events:none;}
+.i-rui .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 24%,transparent 58%,rgba(0,0,0,.58));}
+.i-rui .bars{position:absolute;top:16px;left:14px;right:14px;display:flex;gap:4px;}
+.i-rui .bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.34);}
+.i-rui .bars i.a{background:#fff;}
+.i-rui .acts{position:absolute;right:9px;bottom:74px;display:flex;flex-direction:column;gap:16px;}
+.i-rui .acts b{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.18);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);color:#fff;font-size:13px;}
+.i-rui .cap{position:absolute;left:14px;right:52px;bottom:22px;text-align:left;}
+.i-rui .cap .h{font-family:var(--f-h);font-weight:700;font-size:.8rem;color:#fff;}
+.i-rui .cap .s{font-family:var(--f-b);font-size:.66rem;line-height:1.3;color:rgba(255,255,255,.85);margin-top:3px;}
+.i-svc.stomp{align-items:flex-start;justify-content:center;text-align:left;padding:0 4vw 0 35vw;}
+.i-svc.stomp .i-word{font-size:clamp(2.4rem,8.8vw,8rem);line-height:.84;letter-spacing:-.035em;}
+.i-svc.stomp .i-bar{display:none;}
+.i-svc.stomp .i-line{display:block;animation:i_stomp .62s cubic-bezier(.2,.85,.25,1.18) both;}
+.i-svc.stomp .i-line:nth-child(2){animation-delay:.15s;}
+@keyframes i_stomp{0%{transform:scale(2.3);opacity:0;filter:blur(16px);}55%{opacity:1;}72%{transform:scale(.93);}100%{transform:scale(1);opacity:1;filter:blur(0);}}
+/* finale */
+.i-final .i-mark{width:88px;height:auto;margin:0 auto 28px;display:block;}
+.i-final .i-mark .ic path{fill:var(--logo-blue);}
+.i-final h2{font-family:'Krona One','Helvetica Neue',sans-serif;font-weight:400;font-size:clamp(1.8rem,5vw,3.5rem);color:#fff;line-height:1.18;max-width:18ch;margin:0 auto;}
+.i-final h2 em{font-style:normal;display:block;color:var(--vivid-sky);}
+.ld-skip{position:absolute;right:26px;bottom:24px;z-index:5;font-family:var(--f-h);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);cursor:pointer;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);padding:9px 18px;border-radius:999px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .2s,transform .2s;}
+.ld-skip:hover{background:rgba(255,255,255,.22);transform:translateY(-1px);}
 body.loading{overflow:hidden;}
-@media(prefers-reduced-motion:reduce){
-  .ld-logo .logo{opacity:1;animation:none;-webkit-clip-path:none;clip-path:none;}
-  .ld-tag span{opacity:1;transform:none;animation:none;}
-  .ld-ring{display:none;}
-  #loader::before{opacity:1;animation:none;}
-}
-
-/* ============ HERO BACKGROUND VIDEO ============ */
-.hero-video{position:absolute;inset:0;z-index:0;opacity:.5;overflow:hidden;background:#04293d;}
-.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;transition:opacity .9s ease;transform-origin:center;will-change:transform,opacity;
-  transform:scale(1.05);}
-.hero-video video.show{opacity:1;}
-/* per-clip slow cinematic drift (restarts on each clip so motion stays consistent) */
-.hero-video video.kb{animation:kenburns 8s linear forwards;}
-@keyframes kenburns{from{transform:scale(1.05);}to{transform:scale(1.15);}}
-@media(prefers-reduced-motion:reduce){.hero-video video{animation:none!important;transform:none;}}
-/* ---- laptop "website showcase" scene (the live Spann site, scrolling) ---- */
-.hero-panel{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;
-  display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(120% 100% at 50% 30%,#0e3e5b 0%,#062a3e 55%,#03202f 100%);}
-.hero-panel.show{opacity:1;}
-.lap{position:relative;width:min(62vw,860px);}
-.lap-screen{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#fff;
-  border:12px solid #15171c;border-top-width:16px;border-radius:16px 16px 4px 4px;
-  box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);}
-.site-track{position:absolute;top:0;left:0;width:100%;height:100%;will-change:transform;}
-.site-track.scrolling{animation:siteScroll 6s ease-in-out forwards;}
-@keyframes siteScroll{from{transform:translateY(0);}to{transform:translateY(var(--scroll,-300px));}}
-.site-track .site{position:absolute;top:0;left:0;width:1440px;height:3600px;border:0;transform-origin:top left;}
-.lap-base{position:relative;width:120%;height:20px;margin-left:-10%;
-  background:linear-gradient(#cdd2da,#9aa1ab);border-radius:0 0 14px 14px;
-  box-shadow:0 24px 40px rgba(0,0,0,.4);}
-.lap-base::after{content:"";display:block;width:13%;height:7px;margin:0 auto;
-  background:#828893;border-radius:0 0 9px 9px;}
-@media(prefers-reduced-motion:reduce){.site-track.scrolling{animation:none;}}
-/* ---- Premiere Roofing billboard scene (highway drive-by) ---- */
-.hero-bb{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;overflow:hidden;
-  background:linear-gradient(180deg,#0a2740 0%,#1a5685 40%,#3f8ab6 62%,#9bb4c2 74%,#0c1f2e 75%,#0c1f2e 100%);}
-.hero-bb.show{opacity:1;}
-.bb-stage{position:absolute;left:50%;top:42%;width:min(70vw,1040px);
-  transform:translate(-50%,-50%) perspective(1500px) rotateY(7deg) scale(1);}
-.bb-stage.driving{animation:bbDrive 6.5s ease-out forwards;}
-@keyframes bbDrive{
-  from{transform:translate(-53%,-50%) perspective(1500px) rotateY(16deg) scale(.9);}
-  to{transform:translate(-50%,-50%) perspective(1500px) rotateY(3deg) scale(1.05);}}
-.bb-frame{position:relative;width:100%;aspect-ratio:3/1;container-type:inline-size;
-  border:0.7cqw solid #20242e;border-radius:.5cqw;overflow:hidden;background:#1f63bd;
-  box-shadow:0 2cqw 5cqw rgba(0,0,0,.5);}
-.bb-art{position:absolute;inset:0;display:flex;color:#fff;font-family:'Oswald',sans-serif;}
-.bb-left{flex:0 0 34%;padding:3cqw 2.6cqw 6cqw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;}
-.bb-roof{width:27cqw;height:6.5cqw;margin-bottom:1cqw;}
-.bb-name{font-family:'Anton';font-weight:400;font-size:8.4cqw;line-height:.92;text-transform:uppercase;letter-spacing:.005em;}
-.bb-ubar{height:1.1cqw;background:#f6b81d;margin:1.3cqw 0 1cqw;width:98%;}
-.bb-sub{font-weight:700;font-size:1.9cqw;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;}
-.bb-div{width:.5cqw;background:#f6b81d;margin:3.5cqw .6cqw;position:relative;z-index:1;}
-.bb-right{flex:1;padding:2.4cqw 3cqw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;}
-.bb-head{font-family:'Anton';font-weight:400;font-size:8.7cqw;line-height:.88;text-transform:uppercase;letter-spacing:-.005em;}
-.bb-yellow{background:#f6b81d;color:#16181d;font-weight:700;font-size:1.95cqw;letter-spacing:.005em;white-space:nowrap;
-  text-transform:uppercase;padding:.8cqw 1.2cqw;margin-top:1.4cqw;align-self:flex-start;}
-.bb-url{margin-top:1.5cqw;font-family:'Anton';font-weight:400;font-size:4cqw;display:flex;align-items:center;gap:1.2cqw;align-self:flex-end;}
-.bb-url i{color:#f6b81d;font-style:normal;}
-.bb-peak{position:absolute;left:0;bottom:0;width:34%;height:12%;background:#f6b81d;z-index:0;
-  clip-path:polygon(0 100%,0 55%,52% 0,100% 55%,100% 100%);}
-.bb-post{width:4.5%;height:16vh;margin:-2px auto 0;background:linear-gradient(90deg,#262c36,#525b6b 45%,#262c36);
-  box-shadow:0 14px 30px rgba(0,0,0,.4);}
-.bb-shadow{position:absolute;left:50%;bottom:-2vh;width:34%;height:3vh;transform:translateX(-50%);
-  background:radial-gradient(ellipse,rgba(0,0,0,.45),transparent 70%);}
-@media(prefers-reduced-motion:reduce){.bb-stage.driving{animation:none;}}
-/* readability tint over the footage so the hero copy stays crisp */
-.hero-tint{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(115deg,rgba(3,42,63,.80) 0%,rgba(3,42,63,.45) 45%,rgba(18,90,130,.34) 74%,rgba(51,217,255,.18) 100%);}
+/* ============ VIDEO beat: cinematic live-capture HUD ============ */
+.i-hud{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .6s ease;
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;color:#fff;}
+#loader.cine .i-hud{opacity:1;}
+#loader.cine #iVid{filter:contrast(1.08) saturate(1.12) brightness(1.02);}
+/* cinematic letterbox */
+.cine-bars::before,.cine-bars::after{content:"";position:absolute;left:0;right:0;height:7%;background:#000;}
+.cine-bars::before{top:0;}.cine-bars::after{bottom:0;}
+/* rule-of-thirds grid (within frame) */
+.cine-grid{position:absolute;inset:7% 0;}
+.cine-grid i{position:absolute;background:rgba(255,255,255,.16);}
+.cine-grid i.v{top:0;bottom:0;width:1px;}
+.cine-grid i.h{left:0;right:0;height:1px;}
+/* autofocus reticle (corner brackets) — pulses with focus hunt */
+.cine-af{position:absolute;left:63%;top:50%;width:clamp(96px,9vw,150px);height:clamp(96px,9vw,150px);
+  transform:translate(-50%,-50%);animation:af 3.4s ease-in-out infinite;}
+.cine-af span{position:absolute;width:20px;height:20px;border:2.5px solid rgba(120,255,160,.9);}
+.cine-af span:nth-child(1){top:0;left:0;border-right:0;border-bottom:0;}
+.cine-af span:nth-child(2){top:0;right:0;border-left:0;border-bottom:0;}
+.cine-af span:nth-child(3){bottom:0;left:0;border-right:0;border-top:0;}
+.cine-af span:nth-child(4){bottom:0;right:0;border-left:0;border-top:0;}
+@keyframes af{0%,80%,100%{transform:translate(-50%,-50%) scale(1);}88%{transform:translate(-50%,-50%) scale(1.16);}}
+.cine-af.hunt span{border-color:rgba(255,210,80,.95);}
+/* readouts */
+.cine-rec{position:absolute;top:calc(7% + 22px);left:30px;display:flex;align-items:center;gap:9px;font-weight:600;font-size:.8rem;letter-spacing:.14em;}
+.cine-rec .d{width:11px;height:11px;border-radius:50%;background:#ff3b30;box-shadow:0 0 10px rgba(255,59,48,.7);animation:blink 1s steps(1,end) infinite;}
+@keyframes blink{50%{opacity:.2;}}
+.cine-tc{position:absolute;top:calc(7% + 22px);right:30px;font-size:.84rem;letter-spacing:.08em;font-variant-numeric:tabular-nums;text-shadow:0 1px 4px rgba(0,0,0,.6);}
+.cine-bl{position:absolute;bottom:calc(7% + 20px);left:30px;font-size:.74rem;letter-spacing:.06em;color:rgba(255,255,255,.86);}
+.cine-br{position:absolute;bottom:calc(7% + 20px);right:30px;font-size:.74rem;letter-spacing:.06em;color:rgba(255,255,255,.86);}
+.cine-vig{position:absolute;inset:0;background:radial-gradient(125% 105% at 50% 48%,transparent 52%,rgba(0,0,0,.55));}
+/* VIDEO title (lower-left lower-third) */
+.i-svc.cine{align-items:flex-start;justify-content:center;text-align:left;padding:0 6vw 0 7vw;}
+.i-svc.cine .i-word{font-family:'Krona One','Helvetica Neue',sans-serif;font-weight:400;font-size:clamp(3rem,12vw,11rem);line-height:.85;letter-spacing:-.03em;color:#fff;text-shadow:0 8px 36px rgba(0,0,0,.6);}
+.i-svc.cine .i-bar{display:block;height:8px;width:clamp(120px,12vw,190px);margin-top:24px;border-radius:5px;background:linear-gradient(90deg,var(--vivid-sky),#fff);box-shadow:0 0 24px rgba(51,217,255,.55);}
+@media(prefers-reduced-motion:reduce){.i-stage,.i-stage:not(.i-logo) > *{transition:opacity .3s;transform:none;filter:none;}.i-logo.on .logo{animation:none;clip-path:none;-webkit-clip-path:none;}.i-track.scrolling,.i-ripple.go,.cine-af,.cine-rec .d{animation:none;}}
 </style></head><body class="loading">
 
-<div id="loader" aria-label="Loading Splash Omnimedia">
-  <div class="ld-inner">
-    <div class="ld-logo"><span class="ld-ring r1"></span><span class="ld-ring r2"></span><svg class="logo" viewBox="0 0 298.77 100.46" role="img" aria-label="Splash Omnimedia" xmlns="http://www.w3.org/2000/svg"><g class="ic"><path d="M227.31,29.91c-1.76-.74-3.76-1.85-5.64-3.13-1.04-.7-2.04-1.46-2.97-2.24-1.01-.85-1.96-1.73-2.8-2.63-1.93-2.05-3.36-4.16-4.25-6.27-1.05-2.48-1.35-4.95-.89-7.34.11-.56.34-1.1.7-1.61.33-.46.74-.88,1.23-1.24.48-.35,1.01-.63,1.57-.83.59-.21,1.18-.31,1.76-.31.73,0,1.4.16,2.01.48.66.35,1.21.87,1.64,1.56.33.53.57,1.21.75,2.13.15.75.24,1.57.33,2.36.09.8.19,1.63.34,2.34.3,1.4.72,2.84,1.25,4.28.49,1.31,1.08,2.66,1.77,4.01,1.13,2.22,2.55,4.52,4.33,7.03l1.91,2.69-3.04-1.28Z"/>
+<div id="loader" aria-label="Splash Omnimedia intro">
+  <div class="i-bg">
+    <video id="iVid" muted playsinline preload="auto"></video>
+    <div class="i-site" id="iSite"><div class="i-lap"><div class="i-lid"><div class="i-screen"><div class="i-track" id="iTrack"><iframe class="i-frame" src="https://spannroofing.com/" title="A roofing website we power" scrolling="no" tabindex="-1" loading="eager"></iframe></div></div></div><div class="i-base"><div class="i-hinge"></div><div class="i-kb"></div><div class="i-pad"></div></div></div></div>
+    <div class="i-reel" id="iReel"><div class="i-phone i-phone2"></div><div class="i-phone"><div class="i-pscreen"><video class="i-pvid" id="iRvid" muted playsinline loop preload="auto" src="https://videos.pexels.com/video-files/4198817/4198817-hd_1920_1080_24fps.mp4"></video><div class="i-notch"></div><div class="i-rui"><div class="grad"></div><div class="bars"><i class="a"></i><i></i><i></i><i></i></div><div class="acts"><b>&#9829;</b><b>&#128172;</b><b>&#10148;</b></div><div class="cap"><div class="h">@splashomnimedia</div><div class="s">Roofing marketing that gets seen</div></div></div></div></div></div>
+  </div>
+  <div class="i-tint"></div>
+  <div class="i-hud" id="iHud" aria-hidden="true">
+    <div class="cine-grid"><i class="v" style="left:33.33%"></i><i class="v" style="left:66.66%"></i><i class="h" style="top:33.33%"></i><i class="h" style="top:66.66%"></i></div>
+    <div class="cine-af"><span></span><span></span><span></span><span></span></div>
+    <div class="cine-rec"><span class="d"></span>REC</div>
+    <div class="cine-tc" id="iTc">00:00:00:00</div>
+    <div class="cine-bl">f/2.8 &middot; 1/50 &middot; ISO 400</div>
+    <div class="cine-br">4K &middot; 24p &middot; AWB</div>
+    <div class="cine-vig"></div>
+    <div class="cine-bars"></div>
+  </div>
+  <span class="i-ripple" id="iRip1"></span><span class="i-ripple r2" id="iRip2"></span>
+  <div class="i-stage i-logo" id="iLogo"><svg class="logo" viewBox="0 0 298.77 100.46" role="img" aria-label="Splash Omnimedia" xmlns="http://www.w3.org/2000/svg"><g class="ic"><path d="M227.31,29.91c-1.76-.74-3.76-1.85-5.64-3.13-1.04-.7-2.04-1.46-2.97-2.24-1.01-.85-1.96-1.73-2.8-2.63-1.93-2.05-3.36-4.16-4.25-6.27-1.05-2.48-1.35-4.95-.89-7.34.11-.56.34-1.1.7-1.61.33-.46.74-.88,1.23-1.24.48-.35,1.01-.63,1.57-.83.59-.21,1.18-.31,1.76-.31.73,0,1.4.16,2.01.48.66.35,1.21.87,1.64,1.56.33.53.57,1.21.75,2.13.15.75.24,1.57.33,2.36.09.8.19,1.63.34,2.34.3,1.4.72,2.84,1.25,4.28.49,1.31,1.08,2.66,1.77,4.01,1.13,2.22,2.55,4.52,4.33,7.03l1.91,2.69-3.04-1.28Z"/>
             <path d="M267.08,89.13c-2,0-3.97-.58-5.26-1.06-1.58-.59-3.06-1.37-4.05-2.15-3.06-2.39-5.77-6.73-8.16-10.56-.53-.85-1.03-1.65-1.52-2.4-.26-.4-.54-.86-.87-1.39-1.1-1.77-2.6-4.19-4.22-6.12-.86-1.02-1.67-1.81-2.41-2.35-.77-.56-1.47-.84-2.07-.84-.09,0-.18,0-.27.02-.46.07-.79.26-1.04.62-.54.76-.72,2.26-.54,4.43.18,2.1.65,4.53,1.12,6.88.34,1.7.65,3.31.85,4.75.23,1.7.26,2.9.08,3.79-.36,1.78-1.25,3.26-2.56,4.26-.61.46-1.29.82-2.04,1.06-.72.23-1.47.34-2.24.34-.89,0-1.78-.15-2.63-.45-.87-.31-1.67-.76-2.37-1.35-.74-.62-1.35-1.37-1.81-2.22-.49-.91-.8-1.93-.93-3.03-.16-1.42-.15-2.82.02-4.26.15-1.28.44-2.56.86-3.93.78-2.5,1.93-4.87,3.03-7.16l.09-.18c.79-1.64,1.86-3.21,2.89-4.73.85-1.25,1.65-2.43,2.3-3.63.7-1.28,1.1-2.41,1.25-3.44.17-1.23.07-2.38-.32-3.43-.35-.97-.95-1.86-1.76-2.65-.77-.75-1.73-1.39-2.84-1.91-1.07-.5-2.23-.86-3.45-1.07-.81-.14-1.76-.21-2.9-.21s-2.36.07-3.63.14h-.07c-1.22.07-2.61.15-3.97.15-.74,0-1.42-.02-2.06-.07-3.01-.22-7.34-.81-10.86-2.41-1.72-.78-3.09-1.74-4.08-2.85-1.14-1.28-1.79-2.76-1.93-4.41-.21-2.46.34-4.41,1.63-5.81,1.46-1.58,3.79-2.39,6.95-2.39,3.38,0,6.97.92,9.38,1.7,2.86.92,5.71,2.16,7.63,3.33.27.16.65.44,1.18.81,1.11.79,2.79,1.99,4.58,2.98,2.05,1.13,3.74,1.71,5.02,1.71.71,0,1.27-.18,1.71-.54.51-.42.89-1.13,1.12-2.1.68-2.86-.34-4.49-1.51-6.38-.49-.78-.99-1.59-1.37-2.5-.57-1.35-.92-2.82-1-4.15-.09-1.5.17-2.75.75-3.62.29-.43.65-.77,1.08-1.01.45-.24.96-.37,1.51-.37h.21c.86.05,1.59.38,2.15,1,.46.5.8,1.18,1.04,2.06.41,1.48.49,3.35.57,5.32.09,2.16.19,4.39.73,6.01.26.78.6,1.34,1.03,1.71.46.39,1.05.59,1.8.59h0c.21,0,.43-.02.66-.04.58-.07,1.01-.33,1.37-.8.37-.48.66-1.2.86-2.14.41-1.93.42-4.57.42-7.12,0-2.81,0-5.71.54-7.97.31-1.31.77-2.3,1.4-3.04.76-.88,1.76-1.37,2.98-1.46.15,0,.3-.02.45-.02.75,0,1.42.14,2,.41.57.26,1.05.65,1.44,1.16.78,1.02,1.15,2.5,1.1,4.4-.04,1.77-.43,3.54-.75,4.71-.53,1.93-1.38,3.78-1.97,5-.23.48-.48.96-.71,1.43-1.07,2.13-2.18,4.33-2.59,6.63-.11.62-.15,1.24-.12,1.85.03.63.14,1.23.33,1.77.19.57.46,1.01.79,1.32.47.43.9.62,1.45.62.25,0,.52-.04.83-.11,1.72-.41,2.98-.97,4.1-1.82,1.22-.93,2.25-2.13,3.11-3.18.4-.49.85-1.19,1.33-1.93.84-1.3,1.79-2.76,2.97-3.95.67-.68,1.34-1.18,2.04-1.55.82-.43,1.69-.64,2.57-.64s1.76.21,2.66.63c1.67.77,2.68,2.14,2.91,3.95.12.9.04,1.9-.22,2.98-.23.93-.58,1.89-1.07,2.86-.86,1.74-2.03,3.34-3.05,4.19-1.15.95-3.6,1.87-6.71,3.04-2.94,1.11-6.27,2.36-8.75,3.79-1.27.73-2.21,1.45-2.79,2.14-.56.66-.78,1.28-.68,1.9.1.58.33.99.71,1.24s.93.38,1.64.38c.86,0,1.93-.18,3.25-.55,1.3-.36,2.68-.86,3.74-1.25.41-.15.81-.31,1.2-.45,2.39-.91,3.91-1.47,4.93-1.47.15,0,.28,0,.41.03.81.15,1.56.48,2.21.99.61.47,1.11,1.07,1.49,1.78.45.83.72,1.79.77,2.77.05,1.01-.12,2.02-.51,2.93-.31.73-.77,1.35-1.37,1.85-.54.44-1.2.8-1.98,1.06-1.22.41-2.75.6-4.81.6-1.16,0-2.36-.06-3.52-.11h-.02c-1.18-.06-2.29-.11-3.36-.11-1.84,0-3.12.17-4.05.53-.49.19-.86.43-1.14.73-.29.31-.48.69-.58,1.17-.16.75-.22,1.45-.17,2.08.04.58.18,1.12.4,1.6.41.9,1.11,1.67,2.16,2.35,2.08,1.35,5.13,2.07,7.82,2.71,1.27.3,2.47.59,3.52.92,1.79.57,3.79,1.57,5.35,2.67.96.68,1.77,1.41,2.39,2.15.74.88,1.23,1.8,1.45,2.72s.17,1.84-.14,2.74c-.32.93-.94,1.85-1.82,2.71-.59.58-1.32,1.01-2.17,1.28-.74.24-1.58.36-2.49.36l-.03.05Z"/>
             <path d="M204.59,78.3c-.16,0-.32,0-.49-.02-.79-.06-1.5-.29-2.11-.67-.57-.36-1.04-.85-1.41-1.47-.43-.73-.72-1.63-.86-2.69-.12-.9-.12-1.89-.02-2.97.18-1.85.67-3.82,1.32-5.28.69-1.54,1.78-3.09,3.24-4.6,1.27-1.32,2.83-2.62,4.63-3.85,1.58-1.09,3.31-2.11,5.15-3.03,1.63-.82,3.3-1.54,4.83-2.08l2.58-.91.12-.04c-5.52,4.19-7.55,10.89-8.9,16.26-.31,1.25-.64,2.53-1.03,3.79-.45,1.45-.92,2.62-1.42,3.58-.65,1.23-1.37,2.15-2.21,2.8-.99.77-2.14,1.17-3.41,1.17h0Z"/>
             <path d="M244.54,95.97c-1.15,0-2.28-.3-3.17-.83-.49-.3-.9-.66-1.22-1.07-.35-.46-.58-.97-.68-1.53-.21-1.1-.06-2.18.45-3.29.42-.92,1.04-1.77,1.65-2.59.92-1.26,1.76-2.73,1.97-4.33.11-.84.02-1.67-.19-2.49-.06-.22-.43-1.59-.76-1.55,2.2-.29,4.56,1.21,5.81,2.92.5.69.94,1.47,1.29,2.34.34.83.59,1.71.76,2.62.16.88.24,1.76.23,2.62,0,.89-.12,1.73-.32,2.5-.45,1.76-1.36,3.09-2.62,3.85-.92.55-2.03.84-3.2.84h0Z"/>
@@ -216,11 +260,14 @@ body.loading{overflow:hidden;}
             <path d="M166.67,67.78c-.08.2-.16.41-.24.62-.08.22-.16.5-.24.84-.08.35-.12.75-.12,1.21v14.09l.12.68c.06.23.11.37.15.43.03.06.11.18.24.36h-.54c-1.02,0-1.77-.11-2.22-.34-.46-.22-.69-.61-.69-1.17-.55.55-1.15.97-1.8,1.25-.06.03-.23.08-.51.16s-.53.13-.75.17-.41.06-.58.07c-.16,0-.29.01-.38.01-1.74,0-3.15-.62-4.23-1.86s-1.63-2.92-1.63-5.03.53-3.67,1.58-4.9c1.06-1.23,2.44-1.85,4.15-1.85.85,0,1.62.13,2.31.38s1.3.66,1.83,1.21v-3.15c0-.63-.12-1.1-.35-1.41-.26-.28-.66-.42-1.18-.42.14-.53.34-.89.6-1.09.26-.2.73-.3,1.41-.3h3.05l.02.04ZM163.2,80.24v-1.55c0-1.39-.31-2.48-.93-3.28-.32-.45-.67-.77-1.04-.97-.42-.17-.88-.25-1.39-.25-1.09,0-1.94.48-2.52,1.43-.59.96-.88,2.29-.88,4,0,1.56.3,2.77.89,3.63s1.44,1.3,2.53,1.3c.97,0,1.77-.38,2.4-1.15.62-.76.94-1.82.94-3.16"/>
             <path d="M175.41,84.43c-.22.61-.46,1.03-.74,1.27-.29.2-.76.3-1.41.3h-2.82l.25-.46.19-.76c.08-.39.12-.83.12-1.34v-7.36c0-.66-.11-1.12-.32-1.36-.2-.29-.57-.44-1.11-.44.25-.65.51-1.07.79-1.26s.7-.29,1.27-.29h2.91l-.21.44-.23.78c-.06.29-.1.55-.1.78s0,.42,0,.55v7.34c0,.66.1,1.12.3,1.38.26.28.64.42,1.13.42M175.02,68.05l-.62,1.55c-.14.31-.36.55-.67.72-.31.14-.72.21-1.23.21h-1.94l.67-1.55c.11-.29.32-.52.64-.68.32-.16.74-.24,1.26-.24h1.9,0Z"/>
             <path d="M190.86,84.5c-.22.57-.42.95-.6,1.12-.18.18-.5.3-.95.38h-.14l-.25.02h-.93l-.49.06-.83.17.09-.62v-1.02c-.53.53-1.13.94-1.8,1.24-.69.27-1.45.41-2.27.41-1.48,0-2.68-.46-3.61-1.38-.92-.92-1.39-2.09-1.39-3.53s.48-2.66,1.46-3.54c.97-.88,2.27-1.32,3.91-1.32.71,0,1.36.13,1.97.39.59.23,1.12.59,1.6,1.09v-.25l.07-.42c0-1.13-.34-1.96-1.01-2.51s-1.71-.82-3.11-.82h-.84l-1.09.1-1.7.37c.32-.8.74-1.33,1.24-1.58s1.51-.38,3.02-.38c2.22,0,3.82.45,4.81,1.34.99.89,1.48,2.36,1.48,4.39v4.63c0,.71.1,1.16.3,1.36s.55.3,1.06.3M186.7,81.24c0-.96-.27-1.72-.81-2.29-.49-.55-1.2-.83-2.13-.83s-1.62.29-2.17.87c-.56.58-.83,1.35-.83,2.3s.29,1.77.87,2.38c.58.62,1.3.93,2.16.93s1.58-.29,2.12-.88c.53-.59.8-1.41.8-2.48"/></g></svg></div>
-    <div class="ld-tag"><span>Your <i>Strategic Growth</i> Partner</span></div>
-    <div class="ld-rule"></div>
-  </div>
-  <div class="ld-bar"><i id="ld-fill"></i></div>
-  <button class="ld-skip" id="ld-skip" type="button">Skip &rsaquo;</button>
+  <div class="i-stage i-tag" id="iTag"><div><span>Your <i>Strategic Growth</i> Partner</span><div class="rule"></div></div></div>
+  <div class="i-stage i-svc" id="iSvc"><div><div class="i-word" id="iWord"></div><span class="i-bar"></span></div></div>
+  <div class="i-stage i-final" id="iFinal"><div><svg class="logo i-mark" viewBox="196 0 104 100" role="img" aria-label="Splash" xmlns="http://www.w3.org/2000/svg"><g class="ic"><path d="M227.31,29.91c-1.76-.74-3.76-1.85-5.64-3.13-1.04-.7-2.04-1.46-2.97-2.24-1.01-.85-1.96-1.73-2.8-2.63-1.93-2.05-3.36-4.16-4.25-6.27-1.05-2.48-1.35-4.95-.89-7.34.11-.56.34-1.1.7-1.61.33-.46.74-.88,1.23-1.24.48-.35,1.01-.63,1.57-.83.59-.21,1.18-.31,1.76-.31.73,0,1.4.16,2.01.48.66.35,1.21.87,1.64,1.56.33.53.57,1.21.75,2.13.15.75.24,1.57.33,2.36.09.8.19,1.63.34,2.34.3,1.4.72,2.84,1.25,4.28.49,1.31,1.08,2.66,1.77,4.01,1.13,2.22,2.55,4.52,4.33,7.03l1.91,2.69-3.04-1.28Z"/>
+            <path d="M267.08,89.13c-2,0-3.97-.58-5.26-1.06-1.58-.59-3.06-1.37-4.05-2.15-3.06-2.39-5.77-6.73-8.16-10.56-.53-.85-1.03-1.65-1.52-2.4-.26-.4-.54-.86-.87-1.39-1.1-1.77-2.6-4.19-4.22-6.12-.86-1.02-1.67-1.81-2.41-2.35-.77-.56-1.47-.84-2.07-.84-.09,0-.18,0-.27.02-.46.07-.79.26-1.04.62-.54.76-.72,2.26-.54,4.43.18,2.1.65,4.53,1.12,6.88.34,1.7.65,3.31.85,4.75.23,1.7.26,2.9.08,3.79-.36,1.78-1.25,3.26-2.56,4.26-.61.46-1.29.82-2.04,1.06-.72.23-1.47.34-2.24.34-.89,0-1.78-.15-2.63-.45-.87-.31-1.67-.76-2.37-1.35-.74-.62-1.35-1.37-1.81-2.22-.49-.91-.8-1.93-.93-3.03-.16-1.42-.15-2.82.02-4.26.15-1.28.44-2.56.86-3.93.78-2.5,1.93-4.87,3.03-7.16l.09-.18c.79-1.64,1.86-3.21,2.89-4.73.85-1.25,1.65-2.43,2.3-3.63.7-1.28,1.1-2.41,1.25-3.44.17-1.23.07-2.38-.32-3.43-.35-.97-.95-1.86-1.76-2.65-.77-.75-1.73-1.39-2.84-1.91-1.07-.5-2.23-.86-3.45-1.07-.81-.14-1.76-.21-2.9-.21s-2.36.07-3.63.14h-.07c-1.22.07-2.61.15-3.97.15-.74,0-1.42-.02-2.06-.07-3.01-.22-7.34-.81-10.86-2.41-1.72-.78-3.09-1.74-4.08-2.85-1.14-1.28-1.79-2.76-1.93-4.41-.21-2.46.34-4.41,1.63-5.81,1.46-1.58,3.79-2.39,6.95-2.39,3.38,0,6.97.92,9.38,1.7,2.86.92,5.71,2.16,7.63,3.33.27.16.65.44,1.18.81,1.11.79,2.79,1.99,4.58,2.98,2.05,1.13,3.74,1.71,5.02,1.71.71,0,1.27-.18,1.71-.54.51-.42.89-1.13,1.12-2.1.68-2.86-.34-4.49-1.51-6.38-.49-.78-.99-1.59-1.37-2.5-.57-1.35-.92-2.82-1-4.15-.09-1.5.17-2.75.75-3.62.29-.43.65-.77,1.08-1.01.45-.24.96-.37,1.51-.37h.21c.86.05,1.59.38,2.15,1,.46.5.8,1.18,1.04,2.06.41,1.48.49,3.35.57,5.32.09,2.16.19,4.39.73,6.01.26.78.6,1.34,1.03,1.71.46.39,1.05.59,1.8.59h0c.21,0,.43-.02.66-.04.58-.07,1.01-.33,1.37-.8.37-.48.66-1.2.86-2.14.41-1.93.42-4.57.42-7.12,0-2.81,0-5.71.54-7.97.31-1.31.77-2.3,1.4-3.04.76-.88,1.76-1.37,2.98-1.46.15,0,.3-.02.45-.02.75,0,1.42.14,2,.41.57.26,1.05.65,1.44,1.16.78,1.02,1.15,2.5,1.1,4.4-.04,1.77-.43,3.54-.75,4.71-.53,1.93-1.38,3.78-1.97,5-.23.48-.48.96-.71,1.43-1.07,2.13-2.18,4.33-2.59,6.63-.11.62-.15,1.24-.12,1.85.03.63.14,1.23.33,1.77.19.57.46,1.01.79,1.32.47.43.9.62,1.45.62.25,0,.52-.04.83-.11,1.72-.41,2.98-.97,4.1-1.82,1.22-.93,2.25-2.13,3.11-3.18.4-.49.85-1.19,1.33-1.93.84-1.3,1.79-2.76,2.97-3.95.67-.68,1.34-1.18,2.04-1.55.82-.43,1.69-.64,2.57-.64s1.76.21,2.66.63c1.67.77,2.68,2.14,2.91,3.95.12.9.04,1.9-.22,2.98-.23.93-.58,1.89-1.07,2.86-.86,1.74-2.03,3.34-3.05,4.19-1.15.95-3.6,1.87-6.71,3.04-2.94,1.11-6.27,2.36-8.75,3.79-1.27.73-2.21,1.45-2.79,2.14-.56.66-.78,1.28-.68,1.9.1.58.33.99.71,1.24s.93.38,1.64.38c.86,0,1.93-.18,3.25-.55,1.3-.36,2.68-.86,3.74-1.25.41-.15.81-.31,1.2-.45,2.39-.91,3.91-1.47,4.93-1.47.15,0,.28,0,.41.03.81.15,1.56.48,2.21.99.61.47,1.11,1.07,1.49,1.78.45.83.72,1.79.77,2.77.05,1.01-.12,2.02-.51,2.93-.31.73-.77,1.35-1.37,1.85-.54.44-1.2.8-1.98,1.06-1.22.41-2.75.6-4.81.6-1.16,0-2.36-.06-3.52-.11h-.02c-1.18-.06-2.29-.11-3.36-.11-1.84,0-3.12.17-4.05.53-.49.19-.86.43-1.14.73-.29.31-.48.69-.58,1.17-.16.75-.22,1.45-.17,2.08.04.58.18,1.12.4,1.6.41.9,1.11,1.67,2.16,2.35,2.08,1.35,5.13,2.07,7.82,2.71,1.27.3,2.47.59,3.52.92,1.79.57,3.79,1.57,5.35,2.67.96.68,1.77,1.41,2.39,2.15.74.88,1.23,1.8,1.45,2.72s.17,1.84-.14,2.74c-.32.93-.94,1.85-1.82,2.71-.59.58-1.32,1.01-2.17,1.28-.74.24-1.58.36-2.49.36l-.03.05Z"/>
+            <path d="M204.59,78.3c-.16,0-.32,0-.49-.02-.79-.06-1.5-.29-2.11-.67-.57-.36-1.04-.85-1.41-1.47-.43-.73-.72-1.63-.86-2.69-.12-.9-.12-1.89-.02-2.97.18-1.85.67-3.82,1.32-5.28.69-1.54,1.78-3.09,3.24-4.6,1.27-1.32,2.83-2.62,4.63-3.85,1.58-1.09,3.31-2.11,5.15-3.03,1.63-.82,3.3-1.54,4.83-2.08l2.58-.91.12-.04c-5.52,4.19-7.55,10.89-8.9,16.26-.31,1.25-.64,2.53-1.03,3.79-.45,1.45-.92,2.62-1.42,3.58-.65,1.23-1.37,2.15-2.21,2.8-.99.77-2.14,1.17-3.41,1.17h0Z"/>
+            <path d="M244.54,95.97c-1.15,0-2.28-.3-3.17-.83-.49-.3-.9-.66-1.22-1.07-.35-.46-.58-.97-.68-1.53-.21-1.1-.06-2.18.45-3.29.42-.92,1.04-1.77,1.65-2.59.92-1.26,1.76-2.73,1.97-4.33.11-.84.02-1.67-.19-2.49-.06-.22-.43-1.59-.76-1.55,2.2-.29,4.56,1.21,5.81,2.92.5.69.94,1.47,1.29,2.34.34.83.59,1.71.76,2.62.16.88.24,1.76.23,2.62,0,.89-.12,1.73-.32,2.5-.45,1.76-1.36,3.09-2.62,3.85-.92.55-2.03.84-3.2.84h0Z"/>
+            <path d="M286.16,34.92c-.27,0-.55-.02-.83-.05-1.65-.18-3.06-1.04-4.32-2.62-1.04-1.31-1.89-3-2.7-4.63-.82-1.64-1.67-3.34-2.72-4.66-.54-.68-1.08-1.2-1.67-1.6-2.58-1.77-5.28-1.89-8.36-1.13-.13.03-1.22.39-1.3.5.57-.81,1.49-1.5,2.28-2.1,2.73-2.06,5.98-2.98,9.38-2.98,1.82,0,3.68.25,5.52.74,1.8.48,3.49,1.16,5.03,2.03,3.33,1.89,5.49,4.43,6.09,7.16.3,1.36.33,2.67.09,3.88-.23,1.17-.7,2.21-1.4,3.08-.61.76-1.36,1.35-2.24,1.77-.88.41-1.84.62-2.85.62h0Z"/></g></svg><h2>Bring All Your Marketing <em>Under One Roof</em></h2></div></div>
+  <button class="ld-skip" id="ld-skip" type="button">Skip Intro &rsaquo;</button>
 </div>
 
 <header class="nav" id="top"><a href="#top" aria-label="Splash Omnimedia"><svg class="logo " viewBox="0 0 298.77 100.46" role="img" aria-label="Splash Omnimedia" xmlns="http://www.w3.org/2000/svg"><g class="ic"><path d="M227.31,29.91c-1.76-.74-3.76-1.85-5.64-3.13-1.04-.7-2.04-1.46-2.97-2.24-1.01-.85-1.96-1.73-2.8-2.63-1.93-2.05-3.36-4.16-4.25-6.27-1.05-2.48-1.35-4.95-.89-7.34.11-.56.34-1.1.7-1.61.33-.46.74-.88,1.23-1.24.48-.35,1.01-.63,1.57-.83.59-.21,1.18-.31,1.76-.31.73,0,1.4.16,2.01.48.66.35,1.21.87,1.64,1.56.33.53.57,1.21.75,2.13.15.75.24,1.57.33,2.36.09.8.19,1.63.34,2.34.3,1.4.72,2.84,1.25,4.28.49,1.31,1.08,2.66,1.77,4.01,1.13,2.22,2.55,4.52,4.33,7.03l1.91,2.69-3.04-1.28Z"/>
@@ -243,11 +290,9 @@ body.loading{overflow:hidden;}
             <path d="M175.41,84.43c-.22.61-.46,1.03-.74,1.27-.29.2-.76.3-1.41.3h-2.82l.25-.46.19-.76c.08-.39.12-.83.12-1.34v-7.36c0-.66-.11-1.12-.32-1.36-.2-.29-.57-.44-1.11-.44.25-.65.51-1.07.79-1.26s.7-.29,1.27-.29h2.91l-.21.44-.23.78c-.06.29-.1.55-.1.78s0,.42,0,.55v7.34c0,.66.1,1.12.3,1.38.26.28.64.42,1.13.42M175.02,68.05l-.62,1.55c-.14.31-.36.55-.67.72-.31.14-.72.21-1.23.21h-1.94l.67-1.55c.11-.29.32-.52.64-.68.32-.16.74-.24,1.26-.24h1.9,0Z"/>
             <path d="M190.86,84.5c-.22.57-.42.95-.6,1.12-.18.18-.5.3-.95.38h-.14l-.25.02h-.93l-.49.06-.83.17.09-.62v-1.02c-.53.53-1.13.94-1.8,1.24-.69.27-1.45.41-2.27.41-1.48,0-2.68-.46-3.61-1.38-.92-.92-1.39-2.09-1.39-3.53s.48-2.66,1.46-3.54c.97-.88,2.27-1.32,3.91-1.32.71,0,1.36.13,1.97.39.59.23,1.12.59,1.6,1.09v-.25l.07-.42c0-1.13-.34-1.96-1.01-2.51s-1.71-.82-3.11-.82h-.84l-1.09.1-1.7.37c.32-.8.74-1.33,1.24-1.58s1.51-.38,3.02-.38c2.22,0,3.82.45,4.81,1.34.99.89,1.48,2.36,1.48,4.39v4.63c0,.71.1,1.16.3,1.36s.55.3,1.06.3M186.7,81.24c0-.96-.27-1.72-.81-2.29-.49-.55-1.2-.83-2.13-.83s-1.62.29-2.17.87c-.56.58-.83,1.35-.83,2.3s.29,1.77.87,2.38c.58.62,1.3.93,2.16.93s1.58-.29,2.12-.88c.53-.59.8-1.41.8-2.48"/></g></svg></a><nav class="links"><a class="l" href="#strategy">Strategy</a><a class="l" href="#services">Services</a><a class="l" href="#who">Who We Help</a><a class="l" href="#results">Results</a><a class="l" href="#resources">Resources</a><a class="cta" href="#contact">Book A Strategy Call</a></nav></header>
 <section class="hero c1">
-  <div class="hero-video"><video id="bgA" muted playsinline preload="auto"></video><video id="bgB" muted playsinline preload="auto"></video><div id="bgPanel" class="hero-panel"><div class="lap"><div class="lap-screen"><div class="site-track"><iframe class="site" src="https://spannroofing.com/" title="A roofing website we power" scrolling="no" tabindex="-1" loading="eager"></iframe></div></div><div class="lap-base"></div></div></div><div id="bgBillboard" class="hero-bb"><div class="bb-stage"><div class="bb-frame"><div class="bb-art"><div class="bb-left"><svg class="bb-roof" viewBox="0 0 130 36" xmlns="http://www.w3.org/2000/svg"><polygon points="65,2 128,32 104,32 65,14 26,32 2,32" fill="#f6b81d"/><polygon points="65,16 93,32 37,32" fill="#fff"/></svg><div class="bb-name">PREMIERE<br>ROOFING</div><div class="bb-ubar"></div><div class="bb-sub">RESIDENTIAL &middot; COMMERCIAL &middot; WATERPROOFING</div></div><div class="bb-div"></div><div class="bb-right"><div class="bb-head">FREE ROOF<br>INSPECTIONS</div><div class="bb-yellow">RESIDENTIAL &bull; COMMERCIAL &bull; WATERPROOFING</div><div class="bb-url"><i>&mdash;</i> ROOFTEAM.COM <i>&mdash;</i></div></div><div class="bb-peak"></div></div></div><div class="bb-post"></div><div class="bb-shadow"></div></div></div></div>
-  <div class="hero-tint"></div>
   <canvas id="fx"></canvas>
   <div class="wrap">
-    <h1 class="head">Bring Your Roofing Marketing <em>Under One Roof</em></h1><p class="subline">Splash is the roofing marketing expert helping residential, commercial &amp; industrial roofing companies turn scattered marketing into a clear plan, stronger visibility, and more consistent opportunities.</p>
+    <h1 class="head">Splash Omnimedia is the <em>roofing marketing expert</em> helping residential, commercial &amp; industrial roofing companies turn scattered marketing into a clear plan, stronger visibility, and more consistent opportunities.</h1>
     <div class="btns"><a class="btn btn-p btn-magnet" href="#contact">Book A Strategy Call</a>
     <a class="btn btn-g" href="#results">See Roofing Results <span class="arw">&rarr;</span></a></div>
   </div>
@@ -295,133 +340,54 @@ body.loading{overflow:hidden;}
 
 <script>
 (function(){
-  var loader=document.getElementById('loader'),fill=document.getElementById('ld-fill'),
-  skip=document.getElementById('ld-skip'),done=false,
-  reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var DUR=reduce?300:2500;          // load-bar duration
-  var HOLD=reduce?0:450;            // pause on full logo before exit
-  // animate progress bar
-  var t0=performance.now();
-  function tick(now){
-    var p=Math.min((now-t0)/DUR,1);
-    fill.style.width=(p*100).toFixed(1)+'%';
-    if(p<1){requestAnimationFrame(tick);} else {setTimeout(exit,HOLD);}
-  }
-  requestAnimationFrame(tick);
-  function exit(){
-    if(done)return;done=true;
-    document.body.classList.remove('loading');
-    loader.classList.add('out');
-    // carry the splash effect into the hero: center the glow + a ripple burst
-    try{
-      var cx=innerWidth*0.5, cy=innerHeight*0.46;
-      dispatchEvent(new PointerEvent('pointermove',{clientX:cx,clientY:cy}));
-      dispatchEvent(new PointerEvent('pointerdown',{clientX:cx,clientY:cy}));
-    }catch(e){}
-    setTimeout(function(){loader&&loader.parentNode&&loader.parentNode.removeChild(loader);},1200);
-  }
-  skip.addEventListener('click',exit);
-})();
-</script>
-
-<script>
-(function(){
-  /* ---- B-ROLL PLAYLIST ----------------------------------------------------
-     PLACEHOLDER stand-in clips (free stock footage from Pexels, free to use).
-     Themed to the concept: aerial neighborhoods, a truck on the road, a
-     handshake, a roof crew, an office meeting. SWAP these URLs for the real
-     edited roofing B-roll (or local files like 'assets/broll-drone.mp4') and
-     everything else keeps working. -------------------------------------------- */
-  var CLIPS=[
-    'https://videos.pexels.com/video-files/2317031/2317031-hd_1280_720_30fps.mp4',    /* video team capturing footage */
-    'https://videos.pexels.com/video-files/4462852/4462852-hd_1920_1080_25fps.mp4',   /* drone / aerial crew */
-    'https://videos.pexels.com/video-files/7868298/7868298-hd_1920_1080_25fps.mp4',   /* aerial of client rooftops */
-    'https://videos.pexels.com/video-files/4198817/4198817-hd_1920_1080_24fps.mp4',   /* laying shingles */
-    'https://videos.pexels.com/video-files/8720485/8720485-hd_1280_720_24fps.mp4',    /* roof crew working */
-    'https://videos.pexels.com/video-files/3360182/3360182-hd_1920_1080_30fps.mp4',   /* billboard pan */
-    'https://videos.pexels.com/video-files/4169704/4169704-hd_1920_1080_25fps.mp4',   /* branded vehicle on the road */
-    'https://videos.pexels.com/video-files/28886731/12504902_1920_1080_30fps.mp4',    /* trade show booth */
-    'https://videos.pexels.com/video-files/6558326/6558326-hd_1920_1080_25fps.mp4',   /* marketing team with client */
-    'https://videos.pexels.com/video-files/5637933/5637933-hd_1920_1080_24fps.mp4',   /* handshake / closing the deal */
-    'https://videos.pexels.com/video-files/7165701/7165701-hd_1280_720_50fps.mp4'     /* team success / celebration */
-  ];
-  var A=document.getElementById('bgA'),B=document.getElementById('bgB'),
-      P=document.getElementById('bgPanel'),PBB=document.getElementById('bgBillboard');
-  if(!A||!B)return;
+  var L=document.getElementById('loader'); if(!L) return;
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var V=[A,B],vtog=0,RATE=0.85,FADE=900;
-  /* scene list with per-clip durations (ms). Bare-feet/unsafe clip removed.
-     Whole montage runs ~30s. */
-  var SCENES=[
-    {v:CLIPS[0], d:2800},     /* video team capturing footage */
-    {v:CLIPS[1], d:1600},     /* drone (quarter length) */
-    {v:CLIPS[2], d:2200},     /* aerial suburban rooftops (shortened) */
-    {v:CLIPS[3], d:2600},     /* roof deck / shingles (safety lines) */
-    {v:'BILLBOARD', d:3000},  /* Premiere Roofing billboard */
-    {v:CLIPS[6], d:2600},     /* branded vehicle on the road */
-    {v:'WEBSITE', d:3200},    /* Spann website on a laptop */
-    {v:CLIPS[7], d:2400},     /* trade show */
-    {v:CLIPS[8], d:2400},     /* marketing team with client */
-    {v:CLIPS[9], d:2400},     /* handshake */
-    {v:CLIPS[10], d:3000}     /* success / celebration */
+  var iVid=document.getElementById('iVid'),iSite=document.getElementById('iSite'),iTrack=document.getElementById('iTrack');
+  var iReel=document.getElementById('iReel'),iRvid=document.getElementById('iRvid');
+  var iSvc=document.getElementById('iSvc'),iWord=document.getElementById('iWord');
+  function on(id){var e=document.getElementById(id);if(e)e.classList.add('on');}
+  function off(id){var e=document.getElementById(id);if(e)e.classList.remove('on');}
+  function showBg(el){[iVid,iSite,iReel].forEach(function(x){if(x)x.classList.remove('show');});if(el)el.classList.add('show');}
+  function playVid(url){try{iVid.src=url;iVid.load();iVid.muted=true;var p=iVid.play();if(p&&p.catch)p.catch(function(){});}catch(e){}}
+  function playReel(){try{if(!iRvid)return;iRvid.muted=true;iRvid.currentTime=0;var p=iRvid.play();if(p&&p.catch)p.catch(function(){});}catch(e){}}
+  var iTc=document.getElementById('iTc'),iAf=document.querySelector('.cine-af'),tcTimer=null,afTimer=null,tcF=0;
+  function pad(n){return(n<10?'0':'')+n;}
+  function startTC(){tcF=0;stopTC();tcTimer=setInterval(function(){tcF++;if(iTc)iTc.textContent=pad(Math.floor(tcF/86400))+':'+pad(Math.floor(tcF/1440)%60)+':'+pad(Math.floor(tcF/24)%60)+':'+pad(tcF%24);},1000/24);
+    afTimer=setInterval(function(){if(!iAf)return;iAf.classList.add('hunt');setTimeout(function(){iAf.classList.remove('hunt');},420);},3400);}
+  function stopTC(){if(tcTimer){clearInterval(tcTimer);tcTimer=null;}if(afTimer){clearInterval(afTimer);afTimer=null;}}
+  function prepSite(){try{var sc=iSite.querySelector('.i-screen'),f=iSite.querySelector('.i-frame');var s=sc.clientWidth/1440;if(!isFinite(s)||s<=0)s=.5;f.style.transform='scale('+s+')';iTrack.style.setProperty('--isc',(-(1100*s))+'px');iTrack.classList.remove('scrolling');void iTrack.offsetWidth;iTrack.classList.add('scrolling');}catch(e){}}
+  var rips=[document.getElementById('iRip1'),document.getElementById('iRip2')];
+  function rip(){rips.forEach(function(r){if(!r)return;r.classList.remove('go');void r.offsetWidth;r.classList.add('go');});}
+  var BEATS=[
+    {word:'Digital Marketing',html:'<span class="i-line">DIGITAL</span><span class="i-line i-out">MARKETING</span>',desc:'SEO, ads, social, and content working from one plan.',bg:'reel'},
+    {word:'Websites',html:'<span class="l1">WEB</span><span class="l2">SITES</span>',desc:'Roofing sites built to earn trust and turn visits into calls.',bg:'site'},
+    {word:'Video',desc:'Show the quality of your work with visuals that build trust.',bg:'vid',url:'https://videos.pexels.com/video-files/8720485/8720485-hd_1280_720_24fps.mp4'}
   ];
-  if(!P) SCENES=SCENES.filter(function(s){return s.v!=='WEBSITE';});
-  if(!PBB) SCENES=SCENES.filter(function(s){return s.v!=='BILLBOARD';});
-  function safePlay(v){if(v&&v.play){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
-  function restartKB(v){v.classList.remove('kb');void v.offsetWidth;v.classList.add('kb');}
-  [A,B].forEach(function(v){v.muted=true;v.loop=true;v.playsInline=true;v.preload='auto';
-    v.addEventListener('loadeddata',function(){try{v.playbackRate=RATE;}catch(e){}});});
-  function load(v,url){if(v.getAttribute('data-url')===url)return;v.setAttribute('data-url',url);v.src=url;v.load();}
-  function whenReady(v,cb){
-    if(v.readyState>=3){cb();return;}
-    var done=false;function f(){if(!done&&v.readyState>=3){done=true;clean();cb();}}
-    function clean(){['canplay','canplaythrough','loadeddata','progress'].forEach(function(e){v.removeEventListener(e,f);});}
-    ['canplay','canplaythrough','loadeddata','progress'].forEach(function(e){v.addEventListener(e,f);});
-    setTimeout(function(){if(!done){done=true;clean();cb();}},6000);
-  }
-  function preparePanel(dur){
-    var scr=P.querySelector('.lap-screen'),track=P.querySelector('.site-track'),ifr=P.querySelector('.site');
-    var s=scr.clientWidth/1440; if(!isFinite(s)||s<=0)s=0.55;
-    ifr.style.transform='scale('+s+')';
-    track.style.setProperty('--scroll',(-(1500*s))+'px');
-    track.style.animationDuration=((dur+FADE)/1000)+'s';
-    track.classList.remove('scrolling');void track.offsetWidth;track.classList.add('scrolling');
-  }
-  function prepareBillboard(dur){
-    var stage=PBB.querySelector('.bb-stage');
-    stage.style.animationDuration=((dur+FADE)/1000)+'s';
-    stage.classList.remove('driving');void stage.offsetWidth;stage.classList.add('driving');
-  }
-  var cur=A, si=0;
-  function nextVideoLayer(){ if(cur===A)return B; if(cur===B)return A; var t=V[vtog%2];vtog++;return t; }
-  /* first scene on screen immediately */
-  load(A,SCENES[0].v);A.style.zIndex='3';B.style.zIndex='1';if(P)P.style.zIndex='1';if(PBB)PBB.style.zIndex='1';
-  A.classList.add('show');restartKB(A);safePlay(A);
-  function kick(){safePlay(cur);}
-  var evs=['pointerdown','pointermove','touchstart','keydown','scroll','wheel','click'],kicked=false;
-  function onFirst(){if(kicked)return;kicked=true;kick();evs.forEach(function(e){removeEventListener(e,onFirst);});}
-  evs.forEach(function(e){addEventListener(e,onFirst,{passive:true});});
-  document.addEventListener('visibilitychange',function(){if(!document.hidden)kick();});
-  if(reduce)return;
-  /* cross-fade: incoming forced on top so it always dissolves cleanly */
-  function crossTo(tgt,dur){
-    if(tgt===cur){setTimeout(advance,dur);return;}
-    tgt.style.zIndex='3'; cur.style.zIndex='2';
-    [A,B,P,PBB].forEach(function(el){if(el&&el!==tgt&&el!==cur)el.style.zIndex='1';});
-    tgt.classList.add('show');
-    var out=cur;
-    setTimeout(function(){out.classList.remove('show','kb');if(out!==P&&out!==PBB&&out.pause){try{out.pause();}catch(e){}}},FADE+150);
-    cur=tgt; setTimeout(advance,dur);
-  }
-  function advance(){
-    si=(si+1)%SCENES.length; var sc=SCENES[si],dur=sc.d,scene=sc.v;
-    if(scene==='WEBSITE'){ preparePanel(dur); crossTo(P,dur); return; }
-    if(scene==='BILLBOARD'){ prepareBillboard(dur); crossTo(PBB,dur); return; }
-    var tgt=nextVideoLayer();
-    load(tgt,scene);
-    whenReady(tgt,function(){ try{tgt.playbackRate=RATE;}catch(e){} restartKB(tgt); safePlay(tgt); crossTo(tgt,dur); });
-  }
-  setTimeout(advance,SCENES[0].d);
+  var done=false;
+  function exit(){if(done)return;done=true;document.body.classList.remove('loading');L.classList.add('out');
+    try{var cx=innerWidth*.5,cy=innerHeight*.46;dispatchEvent(new PointerEvent('pointermove',{clientX:cx,clientY:cy}));dispatchEvent(new PointerEvent('pointerdown',{clientX:cx,clientY:cy}));}catch(e){}
+    setTimeout(function(){if(L&&L.parentNode)L.parentNode.removeChild(L);},1150);}
+  var sk=document.getElementById('ld-skip');if(sk)sk.addEventListener('click',exit);
+  if(reduce){on('iLogo');setTimeout(exit,700);return;}
+  function at(ms,fn){setTimeout(fn,ms);}
+  at(150,function(){rip();on('iLogo');});
+  at(1850,function(){off('iLogo');rip();on('iTag');});
+  var beatStart=3900,SEG=2250;
+  at(beatStart-250,function(){off('iTag');iSvc.classList.add(BEATS[0].bg==='site'?'centered':BEATS[0].bg==='reel'?'stomp':'x');on('iSvc');});
+  BEATS.forEach(function(b,i){
+    at(beatStart+i*SEG,function(){
+      rip();
+      iSvc.classList.add('swap');
+      if(b.bg==='vid'){playVid(b.url);showBg(iVid);}else if(b.bg==='reel'){playReel();showBg(iReel);}else{prepSite();showBg(iSite);}
+      L.classList.toggle('clear',true);
+      L.classList.toggle('cine',b.bg==='vid');
+      if(b.bg==='vid')startTC();else stopTC();
+      setTimeout(function(){if(b.html){iWord.innerHTML=b.html;}else{iWord.textContent=b.word;}iSvc.classList.toggle('centered',b.bg==='site');iSvc.classList.toggle('stomp',b.bg==='reel');iSvc.classList.toggle('cine',b.bg==='vid');iSvc.classList.remove('swap');},300);
+    });
+  });
+  var finalAt=beatStart+BEATS.length*SEG;
+  at(finalAt,function(){off('iSvc');showBg(null);rip();on('iFinal');L.classList.remove('cine');L.classList.remove('clear');stopTC();});
+  at(finalAt+2800,exit);
 })();
 </script>
 </body></html>
